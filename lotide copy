@@ -1,0 +1,254 @@
+
+
+// *************************
+// assertArraysEqual.js (Assert Arrays Equal):
+// *************************
+
+// Function to assert if two arrays are equal
+const assertArraysEqual = (actual, expected) => {
+  // Check if the arrays are equal using the eqArrays function
+  if (eqArrays(actual, expected)) {
+    console.log("✅ Arrays are equal.");
+  } else {
+    console.log("❌ Arrays are not equal.");
+  }
+};
+
+module.exports = assertArraysEqual;
+
+
+// *************************
+// assertEqual.js (Assert Equal):
+// *************************
+// Function to assert if two values are equal
+const assertEqual = (actual, expected) => {
+  // Check if the values are equal
+  if (actual === expected) {
+    console.log(`✅ Assertion Passed: ${actual} === ${expected}`);
+  } else {
+    console.log(`❌ Assertion Failed: ${actual} !== ${expected}`);
+  }
+};
+
+module.exports = assertEqual;
+
+
+// *************************
+// assertEqualObjects.js (Assert Equal Objects):
+// *************************
+// Function to assert if two objects are equal
+const assertEqualObjects = (actual, expected) => {
+  // Get the keys of both objects
+  const obj1Keys = Object.keys(actual);
+  const obj2Keys = Object.keys(expected);
+
+  // Check if the keys are equal
+  if (eqArrays(obj1Keys, obj2Keys)) {
+    // Compare the values of corresponding keys
+    for (const key of obj1Keys) {
+      if (actual[key] !== expected[key]) {
+        console.log(`❌ Assertion Failed: ${key} in objects is not equal.`);
+        return;
+      }
+    }
+    console.log("✅ Objects are equal.");
+  } else {
+    console.log("❌ Objects have different keys.");
+  }
+};
+
+module.exports = assertEqualObjects;
+
+
+
+// *************************
+// countLetters.js (Count Letters):
+// *************************
+// Function to count the occurrences of each letter in a string
+const countLetters = (str) => {
+  const result = {};
+  for (const char of str) {
+    if (char !== ' ') {
+      result[char] = result[char] ? result[char] + 1 : 1;
+    }
+  }
+  return result;
+};
+
+module.exports = countLetters;
+
+
+// *************************
+// countOnly.js (Count Only):
+// *************************
+// Function to count selected items in an array based on a given object's keys
+const countOnly = (allItems, itemsToCount) => {
+  const result = {};
+  for (const item of allItems) {
+    if (itemsToCount[item]) {
+      result[item] = result[item] ? result[item] + 1 : 1;
+    }
+  }
+  return result;
+};
+
+module.exports = countOnly;
+
+
+// *************************
+// eqArrays.js (Equal Arrays):
+// *************************
+// Function to compare two arrays for equality
+const eqArrays = (arr1, arr2) => {
+  if (arr1.length !== arr2.length) {
+    return false;
+  }
+  for (let i = 0; i < arr1.length; i++) {
+    if (arr1[i] !== arr2[i]) {
+      return false;
+    }
+  }
+  return true;
+};
+
+module.exports = eqArrays;
+
+
+// *************************
+// eqObjects.js (Equal Objects):
+// *************************
+// Function to compare two objects for equality
+const eqObjects = (obj1, obj2) => {
+  const keys1 = Object.keys(obj1);
+  const keys2 = Object.keys(obj2);
+
+  if (keys1.length !== keys2.length) {
+    return false;
+  }
+
+  for (const key of keys1) {
+    if (obj1[key] !== obj2[key]) {
+      return false;
+    }
+  }
+
+  return true;
+};
+
+module.exports = eqObjects;
+
+
+
+// *************************
+// findKey.js (Find Key):
+// *************************
+// Function to find a key in an object based on a callback condition
+const findKey = (object, callback) => {
+  for (const key in object) {
+    if (callback(object[key])) {
+      return key;
+    }
+  }
+  return undefined; // Return undefined if key is not found
+};
+
+module.exports = findKey;
+
+
+// *************************
+// findKeyByValue.js (Find Key By Value):
+// *************************
+// Function to find a key in an object by its corresponding value
+const findKeyByValue = (object, value) => {
+  for (const key in object) {
+    if (object[key] === value) {
+      return key;
+    }
+  }
+  return undefined; // Return undefined if key is not found
+};
+
+module.exports = findKeyByValue;
+
+
+// *************************
+// head.js (Head):
+// *************************
+// Function to get the first element of an array
+const head = (array) => {
+  return array[0];
+};
+
+module.exports = head;
+
+
+// *************************
+// map.js (Map):
+// *************************
+// Function to apply a callback function to each element of an array and return a new array
+const map = (array, callback) => {
+  const result = [];
+  for (const item of array) {
+    result.push(callback(item));
+  }
+  return result;
+};
+
+module.exports = map;
+
+
+// *************************
+// middle.js (Middle):
+// *************************
+// Function to get the middle element(s) of an array
+const middle = (array) => {
+  const middleIndex = Math.floor(array.length / 2);
+  if (array.length % 2 === 0) {
+    return [array[middleIndex - 1], array[middleIndex]];
+  } else {
+    return [array[middleIndex]];
+  }
+};
+
+module.exports = middle;
+
+
+// *************************
+// tail.js (Tail):
+// *************************
+// Function to get all elements of an array except the first one
+const tail = (array) => {
+  return array.slice(1);
+};
+
+module.exports = tail;
+
+
+// *************************
+// takeUntil.js (Take Until):
+// *************************
+// Function to collect items from an array until a callback condition is met
+const takeUntil = (array, callback) => {
+  const result = [];
+  for (const item of array) {
+    if (!callback(item)) {
+      result.push(item);
+    } else {
+      break; // Stop when the condition is met
+    }
+  }
+  return result;
+};
+
+module.exports = takeUntil;
+
+
+// *************************
+// without.js (Without):
+// *************************
+// Function to remove specified items from an array
+const without = (source, itemsToRemove) => {
+  return source.filter(item => !itemsToRemove.includes(item));
+};
+
+module.exports = without;

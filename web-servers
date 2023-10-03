@@ -1,0 +1,31 @@
+TCP
+Last week we did TCP for snek and Vasily connect
+We needed to know the address IP and port we attempted to conenct ot the server the server accepted if ti was online
+
+HTTP
+Hyper Text Transfer Protocol
+
+Subset of TCP
+
+We needed to know the ip of the website (strings and finds them the corresponding address_)
+
+We atempt to connect to the server
+
+we are connect:
+
+__________rrequest____________
+Been there before? What types of files do you accept?
+__________response____________
+What did you request? Will be sent back? What is status code?
+
+Codes = {
+  1xx, Informational
+  2xx, Success
+  3xx, Redirection
+  4xx, Client
+  5xx, Server
+
+
+
+Connection terminated
+
